@@ -24,6 +24,7 @@ def moist(a):
         return(data[0][2])
         
 def color(a):
+    a=int(a)
     if a==1:
         a=11
     if a==2:
@@ -42,16 +43,22 @@ def color(a):
         a=32
     if a==9:
         a=33
+
+
     aa="READSPLIT"+str(a)+".csv"
     with open(aa,mode='r') as csvfile :     #feeding each values to csv
         data=list(csv.reader(csvfile))
+
         if int(data[0][5])==6:
-            data[0][5]="red"
+            data[0][5]=1   #red
+            return(data[0][5])
         if int(data[0][5])>=4:
-            data[0][5]="green"
+            data[0][5]=2  #green
+            return(data[0][5])
         if  int(data[0][5])<4:
-            data[0][5]="orange"
-        return(data[0][5])
+            data[0][5]=3 #orange
+            return(data[0][5])
+        
 
 
 def motor(a):
@@ -78,5 +85,5 @@ def motor(a):
         data=list(csv.reader(csvfile))
         return(data[0][6])
 
-
-print(moist(1))
+for f in range (1,10):
+    print(color(f))
