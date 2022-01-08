@@ -181,7 +181,10 @@ while(1):
 			put1(1)
 		else:
 			print("LEAF IS HEALTHY")
-			put1(5)
+			if greenarea>4000:
+				put1(5)
+			if greenarea<4000 and 2000<greenarea:
+				put1(4)
 			time.sleep(0.1)
 			os.system("cls")
 
